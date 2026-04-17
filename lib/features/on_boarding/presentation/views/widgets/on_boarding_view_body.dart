@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fruit_hub_app/constants.dart';
 import 'package:fruit_hub_app/core/utils/app_color.dart';
 import 'package:fruit_hub_app/core/widgets/custom_button.dart';
+import 'package:fruit_hub_app/features/auth/presentation/views/login_view.dart';
 import 'package:fruit_hub_app/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
+import 'package:fruit_hub_app/generated/l10n.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
@@ -54,7 +56,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainState: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-            child: CustomButton(title: 'ابدأ الان', onPressed: () {}),
+            child: CustomButton(
+              title: S.of(context).startNow,
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, LoginView.routeName);
+              },
+            ),
           ),
         ),
         SizedBox(height: 43),
